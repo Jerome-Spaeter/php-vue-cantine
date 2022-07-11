@@ -94,7 +94,7 @@ le principe est exactement le même si vous écrivez vos messages de commit en f
 - Pour récupérer le repositorie sur github :
 >git clone https://github.com/Jerome-Spaeter/php-vue-cantine
 >
-- Toujours mettre à jour :
+- Toujours mettre à jour nos outils:
 >npm install
 >
 - Toujours aller sur la branche dev avant de faire quoi que se soit :
