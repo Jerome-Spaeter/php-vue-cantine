@@ -7,7 +7,7 @@ Date : 11/07/2022
 
 ---
 
-# Respectez mon autoriter !
+# Respectez mon autorité !
 
 ***Seuls les lead developpeur pourront valider et ainsi merger sur la branch dev !***
 
