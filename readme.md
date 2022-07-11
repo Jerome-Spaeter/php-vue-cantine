@@ -1,12 +1,3 @@
----
-
-Auteurs: Jérôme Spaeter / ID-Formation  
-Formation : Developpeur Web & Web mobile  
-Lieu: Strasbourg
-Date : 11/07/2022
-
----
-
 # ***Respectez mon autorité !***
 
 ***Seuls les lead developpeur pourront valider et ainsi merger sur la branch dev !***
@@ -91,6 +82,8 @@ le principe est exactement le même si vous écrivez vos messages de commit en f
 
 # Rappel des bases :
 
+- ***Lorsque l'on souhaite executer une commande, dans notre terminal, il faut toujours s'assurer que nous somme bien sur le path de notre dossier github et sur la bonne branche !***
+>
 - Pour récupérer le repositorie sur github :
 >git clone https://github.com/Jerome-Spaeter/php-vue-cantine
 >
@@ -103,14 +96,14 @@ le principe est exactement le même si vous écrivez vos messages de commit en f
 - Puis toujours se mettre à jour :
 >git pull
 >
-- Toujours se créer une nouvelle branche quand boss sur une nouvelle tâche qui sera l'enfant de la branch dev  :
+- Toujours se créer une nouvelle branche quand on boss sur une nouvelle tâche qui sera l'enfant de la branch dev  :
 >git checkout dev
 >
 >git checkout -b nomdelabranche(type/name) dev
 >
 >git checkout nomdelabranche(type/name)
 >
-- Aller dans la branche qu'on c'est crée :
+- Aller dans la branche qu'on a créé :
 >git checkout nomdelabranche(type/name)
 >
 - Ajouter notre travail sur la branche :
