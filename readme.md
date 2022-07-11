@@ -92,7 +92,10 @@ le principe est exactement le même si vous écrivez vos messages de commit en f
 # Rappel des bases :
 
 - Pour récupérer le repositorie sur github :
->git clone je mets mon liens********
+>git clone https://github.com/Jerome-Spaeter/php-vue-cantine
+>
+- Toujours mettre à jour :
+>npm install
 >
 - Toujours aller sur la branche dev avant de faire quoi que se soit :
 >git checkout dev
@@ -120,4 +123,4 @@ le principe est exactement le même si vous écrivez vos messages de commit en f
 - ***UNIQUEMENT lEAD DEVELOPPEUR*** Fusionner une branche avec la branche dev
 - ***UNIQUEMENT lEAD DEVELOPPEUR*** Supprimer une branche
 - ***UNIQUEMENT lEAD DEVELOPPEUR*** Gérer les conflits
-> sur github directement, faire un merge, supprimer la branche et telecharger les conflits pour les gérer sur vsCode
+>Sur github directement (https://github.com/Jerome-Spaeter/php-vue-cantine), faire un merge, supprimer la branche et telecharger les conflits pour les gérer sur vsCode
