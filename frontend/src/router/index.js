@@ -2,8 +2,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import AccueilView from '../views/AccueilView.vue'
 import ConnexionView from '../views/ConnexionView.vue'
 import InscriptionView from '../views/InscriptionView.vue'
-import UtilisateurView from '../views/UtilisateurView.vue'
-import InscriptionEnfantView from '../views/UtilisateurView.vue'
+import MessagerieView from '../views/MessagerieView.vue'
+import PaiementView from '../views/PaiementView.vue'
 const routes = [
   {
     path: '/',
@@ -21,14 +21,14 @@ const routes = [
     component: InscriptionView
   },
   {
-    path: '/utilisateur',
-    name: 'utilisateur',
-    component: UtilisateurView
+    path: '/messagerie',
+    name: 'messagerie',
+    component: MessagerieView
   },
   {
-    path: '/inscriptionenfant',
-    name: 'inscriptionenfant',
-    component: InscriptionEnfantView
+    path: '/paiement',
+    name: 'paiement',
+    component: PaiementView
   }
 ]
 const router = createRouter({
