@@ -45,33 +45,16 @@
 </template>
 
 <style scoped>
-    /* Reset début */
-html {
+/* Reset début */
+* {
     box-sizing: border-box;
-    font-size: 16px;
-}
-
-:before, *:after {
-box-sizing: inherit;
-}
-
-body, h1, h2, h3, h4, h5, h6, p, ol, ul {
-margin: 0;
-padding: 0;
-font-weight: normal;
-}
-
-ol, ul {
-list-style: none;
-}
-
-img{
-max-width: 100%;
-height: auto;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
 }
 /* Reset fin */
 
-/* Accueil page global début */
+/* Accueil Deconnecte page global début */
 body{
     height: 100%;
 }
@@ -79,14 +62,14 @@ body{
     height: 100vh;
     display: flex;
 }
-/* Accueil page global fin */
+/* Accueil page Deconnecte global fin */
 
-/* Accueil coté gauche début */
+/* Accueil Deconnecte coté gauche début */
 .accueil-restauration-scolaire{
     width: 50%;
     background-image: url("@/assets/img/africa-studio.jpg");
     background-repeat: no-repeat;
-    background-position: center right;
+    background-position: right;
     object-fit: cover;
     display: flex;
     padding-top: 15rem;
@@ -106,7 +89,7 @@ h1{
     font-weight: 600;
 }
 h2{
-    font-size: 4.4rem;
+    font-size: 4rem;
     font-weight: 900;
     color: #FFBF38;
 }
@@ -114,9 +97,9 @@ h2{
     font-size:1.2rem;
     font-weight: 550;
 }
-/* Accueil coté gauche fin */
+/* Accueil Deconnecte coté gauche fin */
 
-/* Accueil coté droit début */
+/* Accueil Deconnecte coté droit début */
 .accueil-menu{
     width: 40%;
     display: flex;
@@ -127,9 +110,10 @@ h2{
 .menu-jour{
     display: flex;
     flex-direction: column;
+    text-align: start;
 }
 .jour-titre{
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #FFBF38;
     font-weight: 800;
 }
@@ -138,5 +122,5 @@ hr{
     border-radius: 5px;
     width: 100%;
 }
-/* Accueil coté droit fin */
+/* Accueil Deconnecte coté droit fin */
 </style>
