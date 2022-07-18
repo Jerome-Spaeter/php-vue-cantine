@@ -4,28 +4,48 @@
         public $logged;
 
         // privilege booleans
-        protected $is_admin;
-        protected $is_super_admin;
+        protected $isAdmin;
+        protected $isSuperAdmin;
         protected $validated;
         protected $deleted;
 
+        // database location information
+        protected $table;
+        protected $userId;
+
         // user accessible data
+        protected $firstname;
+        protected $surname;
+        protected $gender;
         protected $username;
         protected $email;
-        protected $created;
+        protected $createdDate;
 
-        public function __construct(bool $is_admin, bool $is_super_admin, bool $validated, bool $deleted, string $username, string $email, string $created) 
+        public function __construct(
+            $isAdmin, $isSuperAdmin, $validated, 
+            $deleted, $table, $userId, 
+            $firstname, $surname, $gender, 
+            $username, $email, $createdDate
+            ) 
         {
             //Requires booleans
-            $this -> is_admin = $is_admin;
-            $this -> is_super_admin = $is_super_admin;
+            $this -> isAdmin = $isAdmin;
+            $this -> isSuperAdmin = $isSuperAdmin;
             $this -> validated = $validated;
             $this -> deleted = $deleted;
 
             // requires strings
+            $this -> table = $table;
+            $this -> userId = $userId;
+
+            // user accessible data
+            $this -> firstname = $firstname;
+            $this -> surname = $surname;
+            $this -> gender = $gender;
             $this -> username = $username;
             $this -> email = $email;
-            $this -> created = $created;
+            $this -> createdDate = $createdDate;
         }
+
     }
 ?>
