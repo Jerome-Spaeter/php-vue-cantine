@@ -1,7 +1,8 @@
 <?php
 session_start();
 // Insert requires here
-require './config/database_connection.php'
+require './config/database_connection.php';
+require './classes/user/client.class.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,6 +18,9 @@ require './config/database_connection.php'
         <h1>PHP Cantine testing grounds</h1>
         <!-- test code here -->
         <?php
+        $john = new Client(false, false, true, false, 'User', 3, 'John', 'Doe', 'M', 'JDoe', 'jdoe@orange.fr', '2021-08-05', '0123456789', '2 rue des marchands', 'paris', '111111');
+        
+        var_dump($john -> getCurrentUserInformation()) ;
 
         ?>
 

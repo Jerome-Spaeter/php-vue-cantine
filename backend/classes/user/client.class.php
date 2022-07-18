@@ -1,20 +1,46 @@
 <?php
+    require './classes/user.class.php';
     class Client extends User {
         // user accessible data specific to parents
-        protected $tel;
-        protected $street;
-        protected $city;
-        protected $zipcode;
+        private $tel;
+        private $street;
+        private $city;
+        private $zipcode;
 
-        function __construct(
-            bool $is_admin, bool $is_super_admin, bool $validated, bool $deleted, string $username, string $email, string $created, string $tel, string $street, string $city, string $zipcode
+        public function __construct(
+            $isAdmin, $isSuperAdmin, $validated, 
+            $deleted, $table, $userId, 
+            $firstname, $surname, $gender, 
+            $username, $email, $createdDate, 
+            $tel, $street, $city, $zipcode
             )
         {
-            parent::__construct($is_admin, $is_super_admin, $validated, $deleted, $username, $email, $created);
+            parent::__construct(
+                $isAdmin, $isSuperAdmin, $validated, $deleted, $table, $userId, 
+                $firstname, $surname, $gender, $username, $email, $createdDate
+            );
             $this -> tel = $tel;
             $this -> street = $street;
             $this -> city = $city;
             $this -> zipcode = $zipcode;
         }
+
+        // returns object
+        public function getCurrentUserInformation() {
+            return $currentUserInformation = [
+                'firstname' => $this -> firstname,
+                'surname' => $this -> surname,
+                'gender' => $this -> gender,
+                'username' => $this -> username,
+                'email' => $this -> email,
+                'createdDate' => $this -> createdDate,
+                'tel' => $this -> tel,
+                'street' => $this -> street,
+                'city' => $this -> city,
+                'zipcode' => $this -> zipcode
+            ];
+        }       
+        
+        
     }
 ?>
