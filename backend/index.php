@@ -23,7 +23,7 @@ require './classes/user/client.class.php';
         <?php
         $samy = new SuperAdmin('samy', 'samy@samy.samy', date('Y-m-d'), false, true);
 
-        echo $samy -> created;
+        
         ?>
 
     </body>
