@@ -6,6 +6,23 @@
   <router-view/>
 </template>
 
+<script>
+export default{
+  name: "App",
+  beforeMount() {
+    fetch('https://jsonplaceholder.typicode.com/todos/10/users/')
+    .then(response => response.json())
+    .then(json => {
+      this.data = json ;
+      console.log(this.data);
+      this.$store.commit("setColumns", Object.keys(this.data[0]));
+      this.allColumns = Object.keys(this.data[0]);
+      this.$store.commit("setUsers", this.data);  
+    })
+  }
+}
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
