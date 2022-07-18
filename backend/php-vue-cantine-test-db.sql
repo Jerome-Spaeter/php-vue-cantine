@@ -91,6 +91,7 @@ ALTER TABLE `child` ADD FOREIGN KEY (`fk_parent_id`) REFERENCES user(user_id);
 ALTER TABLE `message` ADD FOREIGN KEY (`fk_parent_id`) REFERENCES user(user_id);
 ALTER TABLE `invoice` ADD FOREIGN KEY (`fk_parent_id`) REFERENCES user(user_id);
 
+
 INSERT INTO user (
   is_admin, 
   is_super_admin, 
@@ -258,6 +259,3 @@ VALUES (
   '2021-08-03',
   0
 )
-
-
-
