@@ -77,7 +77,9 @@ CREATE TABLE `user` (
   CREATE TABLE `invoice` (
     `invoice_id` bigint (7) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `fk_parent_id` bigint (7) UNSIGNED NOT NULL,
-    `invoice_content`TEXT NOT NULL,
+    `fk_child_id` bigint (7) UNSIGNED NOT NULL,
+    `invoice_amount` TEXT NOT NULL,
+    `invoice_period` TEXT NOT NULL,
     `invoice_date` date NOT NULL,
     `invoice_paid` BIT (1) NOT NULL
   )
@@ -234,23 +236,28 @@ VALUES (
 
 INSERT INTO invoice (
   fk_parent_id,
-  invoice_content,
+  fk_child_id,
+  invoice_amount,
+  invoice_period,
   invoice_date,
   invoice_paid
 )
 VALUES (
   3,
-  "La facture de ce mois s'élève a 35euros. Merci de régler cette facture sous 45 jours.",
+  11,
+  35,
+  "juillet",
   '2021-08-03',
   0
 ),
 (
   4,
-  "La facture de ce mois s'élève a 35euros. Merci de régler cette facture sous 45 jours.",
+  12,
+  60,
+  "juillet",
   '2021-08-03',
   0
 )
--- Booléen pour savoir si facture est payé, 
--- et booléen pour savoir quel montant si demi-pension, ou pension complète?
+
 
 
