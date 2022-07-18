@@ -38,7 +38,7 @@ Voyons quelques exemples de noms de branches pour mieux comprendre :
 
 > ```chore/remove-deprecated-method```
 
-le principe est exactement le même si vous écrivez vos messages de commit en français
+le principe est exactement le même si vous écrivez vos noms de branches en français
 
 # Commit
 
