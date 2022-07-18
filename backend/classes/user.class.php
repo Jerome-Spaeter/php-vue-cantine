@@ -4,8 +4,7 @@
         public $logged;
 
         // privilege booleans
-        protected $isAdmin;
-        protected $isSuperAdmin;
+        protected $accountType;
         protected $validated;
         protected $deleted;
 
@@ -22,15 +21,14 @@
         protected $createdDate;
 
         public function __construct(
-            $isAdmin, $isSuperAdmin, $validated, 
+            $accountType, $validated, 
             $deleted, $table, $userId, 
             $firstname, $surname, $gender, 
             $username, $email, $createdDate
             ) 
         {
             //Requires booleans
-            $this -> isAdmin = $isAdmin;
-            $this -> isSuperAdmin = $isSuperAdmin;
+            $this -> accountType = $accountType;
             $this -> validated = $validated;
             $this -> deleted = $deleted;
 

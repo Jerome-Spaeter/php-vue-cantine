@@ -8,7 +8,7 @@
         private $zipcode;
 
         public function __construct(
-            $isAdmin, $isSuperAdmin, $validated, 
+            $accountType, $validated, 
             $deleted, $table, $userId, 
             $firstname, $surname, $gender, 
             $username, $email, $createdDate, 
@@ -16,7 +16,7 @@
             )
         {
             parent::__construct(
-                $isAdmin, $isSuperAdmin, $validated, $deleted, $table, $userId, 
+                $accountType, $validated, $deleted, $table, $userId, 
                 $firstname, $surname, $gender, $username, $email, $createdDate
             );
             $this -> tel = $tel;
@@ -39,8 +39,19 @@
                 'city' => $this -> city,
                 'zipcode' => $this -> zipcode
             ];
-        }       
-        
-        
+        }
+
+        // returns integer which identifies this user in the database
+        public function prepareDelete() {
+            return $this -> userId;
+        }
+
+        public function updateCurrentUser($email, $tel, $street, $city, $zipcode) {
+            $this -> email = $email;
+            $this -> tel = $tel;
+            $this -> street = $street;
+            $this -> city = $city;
+            $this -> zipcode = $zipcode;
+        }
     }
 ?>
