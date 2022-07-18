@@ -15,8 +15,6 @@ export default{
     .then(json => {
       this.data = json ;
       console.log(this.data);
-      this.$store.commit("setColumns", Object.keys(this.data[0]));
-      this.allColumns = Object.keys(this.data[0]);
       this.$store.commit("setUsers", this.data);  
     })
   }

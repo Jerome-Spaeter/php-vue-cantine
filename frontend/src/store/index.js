@@ -4,23 +4,23 @@ export default createStore({
   state: {
     columns:[],
     users: [],
-    pictures: [],
+    usersRequest: [],
   },
   getters: {
   },
   mutations: {
-    setColumns(state,newValue){
-      state.columns=newValue;
-    },
     setUsers(state,newValue){
       state.users=newValue;
     },
-    setPicture(state,newValue){
-      state.picture=newValue;
+    setUsersRequest(state,newValue){
+      state.usersRequest=newValue;
     },
     deleteUser(state, id){
       state.users.splice(state.users.findIndex(user => user.id == id), 1);
     },
+    validateUser(state, validateUserValue){
+      state.usersRequest.splice(state.users.length, 0, validateUserValue);
+    }
   },
   actions: {
   },

@@ -2,8 +2,8 @@
 <div class="gestionnaire">
   <h1>Liste des parents</h1>
   <section class="section-parents">
-    <div class="liste-parents" v-for="(user, index) in allUsers" :key="index" v-bind="user.id">
-      <span class="info-parents" v-for="(value, key, index) in user" :key="index">
+    <div class="liste-parents" v-for="(userlist, index) in allUserlist" :key="index">
+      <span class="info-parents" v-for="(value, key, index) in userlist" :key="index">
         {{key === 'address' ? value.city : key === 'company' ? value.name : value}}
       </span>
       <input type="button" @click="afficherModal(user.id , user.username)" class="btn-supr" value="Supprimer">
@@ -15,13 +15,16 @@
   <hr>
   <h2>Demandes d'inscription</h2>
     <section class="section-parents">
-    <div class="liste-parents" v-for="(user, index) in allUsers" :key="index" v-bind="user.id">
+    <div class="liste-parents" v-for="(user, index) in allUsers" :key="index">
       <span class="info-parents" v-for="(value, key, index) in user" :key="index">
         {{key === 'address' ? value.city : key === 'company' ? value.name : value}}
       </span>
       <div class="btn-box">
-        <input type="button" value="Valider" class="btn-valider">
-        <input type="button" value="Refuser" class="btn-refuser">
+        <input type="button"  @click="ajouterUser()" value="Valider" class="btn-valider">
+              <input type="button" @click="afficherModal(user.id , user.username)" class="btn-refuser" value="Supprimer">
+      <Teleport to="body">
+        <modal :show="showModal" :userId="activeUserId" :userName="activeUserName" @cancel="showModal = false" @confirm="removeUser"></modal>
+      </Teleport>
       </div>
     </div>
   </section>
@@ -38,9 +41,9 @@ export default {
   data: function() {
     return {
       user:[],
-      allColumns:[],
+      userlist:[],
       allUsers:[],
-      allPictures:[],
+      allUserlist: [],
       showModal: false,
       activeUserId: 0,
       activeUserName: "",
@@ -52,6 +55,9 @@ export default {
       this.activeUserName = usernameUser;
       this.showModal = true;
     },
+    ajouterUser() {
+      this.$store.commit("validateUser", this.newUser)
+    },
     removeUser(userId){
       this.$store.commit("deleteUser", userId);
       this.showModal = false;
@@ -60,7 +66,6 @@ export default {
   beforeMount() {
     this.allColumns = this.$store.state.columns;
     this.allUsers = this.$store.state.users;
-    this.allPictures = this.$store.state.pictures;
   }
 }
 </script>
@@ -76,6 +81,7 @@ export default {
 
 .section-parents{
   display: flex;
+  flex-wrap: wrap;
 }
 .liste-parents{
   display: flex;
@@ -85,6 +91,7 @@ export default {
   box-shadow: 5px 5px 5px 5px rgb(218, 218, 218);
   border-radius: 30px;
   background-color: rgb(232, 230, 230);
+  width: 15rem;
 }
 
 h1, h2{
@@ -107,14 +114,10 @@ hr{
   color: white;
   padding: 0.2rem;
   border-radius: 30px;
-  width: 10rem;
+  width: 80%;
   margin: auto;
   font-weight: 700;
   border: none
-}
-
-.btn-box{
-
 }
 .btn-valider{
   background-color:#2DFF35;
