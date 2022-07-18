@@ -4,6 +4,7 @@ export default createStore({
   state: {
     columns:[],
     users: [],
+    pictures: [],
   },
   getters: {
   },
@@ -13,6 +14,9 @@ export default createStore({
     },
     setUsers(state,newValue){
       state.users=newValue;
+    },
+    setPicture(state,newValue){
+      state.picture=newValue;
     },
     deleteUser(state, id){
       state.users.splice(state.users.findIndex(user => user.id == id), 1);
