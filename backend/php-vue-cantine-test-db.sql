@@ -74,10 +74,23 @@ CREATE TABLE `user` (
 )
   ENGINE = InnoDB;
 
+  CREATE TABLE `invoice` (
+    `invoice_id` bigint (7) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `fk_parent_id` bigint (7) UNSIGNED NOT NULL,
+    `fk_child_id` bigint (7) UNSIGNED NOT NULL,
+    `invoice_amount` TEXT NOT NULL,
+    `invoice_period` TEXT NOT NULL,
+    `invoice_date` date NOT NULL,
+    `invoice_paid` BIT (1) NOT NULL
+  )
+    ENGINE = InnoDB;
+
 -- Add foreign keys
 ALTER TABLE `user` ADD UNIQUE KEY `user_username` (`user_username`);
 ALTER TABLE `child` ADD FOREIGN KEY (`fk_parent_id`) REFERENCES user(user_id);
 ALTER TABLE `message` ADD FOREIGN KEY (`fk_parent_id`) REFERENCES user(user_id);
+ALTER TABLE `invoice` ADD FOREIGN KEY (`fk_parent_id`) REFERENCES user(user_id);
+
 
 INSERT INTO user (
   is_admin, 
@@ -222,4 +235,27 @@ VALUES (
   0
 );
 
-
+INSERT INTO invoice (
+  fk_parent_id,
+  fk_child_id,
+  invoice_amount,
+  invoice_period,
+  invoice_date,
+  invoice_paid
+)
+VALUES (
+  3,
+  11,
+  35,
+  "juillet",
+  '2021-08-03',
+  0
+),
+(
+  4,
+  12,
+  60,
+  "juillet",
+  '2021-08-03',
+  0
+)
