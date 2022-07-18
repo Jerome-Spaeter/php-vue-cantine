@@ -1,9 +1,7 @@
 <?php
 session_start();
-require './classes/user.class.php';
-require './classes/user/super-admin.class.php';
-require './classes/user/admin.class.php';
-require './classes/user/client.class.php';
+// Insert requires here
+require './config/database_connection.php'
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,13 +15,9 @@ require './classes/user/client.class.php';
     </head>
     <body>
         <h1>PHP Cantine testing grounds</h1>
-
-        <h2>User Classes testing area</h2>
-        <!-- User class testing area -->
+        <!-- test code here -->
         <?php
-        $samy = new SuperAdmin('samy', 'samy@samy.samy', date('Y-m-d'), false, true);
 
-        
         ?>
 
     </body>
