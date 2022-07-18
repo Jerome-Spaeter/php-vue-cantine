@@ -25,7 +25,7 @@ Strasbourg, le 11 Juillet 2022
 
 ## **Nom des _classes_ PascalCase :**
 
-Exemple : MaClasse.class.php // Le nom de la classe doit indiquer l'objet créé (User, Article...).
+Exemple : class Client extends User // Le nom de la classe doit indiquer l'objet créé (User, Article...).
 
 ## **Nom des _fonctions_ camelCase :**
 

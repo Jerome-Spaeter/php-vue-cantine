@@ -33,8 +33,8 @@ USE `php-vue-cantine`;
 CREATE TABLE `user` (
   `user_id` bigint(7) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `user_username` varchar(25) NOT NULL,
-  `is_admin` BIT(1) NOT NULL,
-  `is_super_admin` BIT(1) NOT NULL,
+  `is_admin` tinyint (1) NOT NULL,
+  `is_super_admin` tinyint (1) NOT NULL,
   `user_deleted` BIT(1) NOT NULL,
   `user_validated` BIT(1) NOT NULL,
   `user_firstname` varchar(50) NOT NULL,
