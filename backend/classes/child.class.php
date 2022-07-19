@@ -1,5 +1,5 @@
 <?php
-    class Child {
+class Child {
         public $table; // name of the table
 
         protected $childId;
@@ -16,8 +16,8 @@
         //    <code to be added>
         }
 
-        public function get(){
-            return $currentChildInformation = [
+        public function get(){       
+                return $currentChildInformation = [
                 'firstname' => $this-> firstname,
                 'surname' => $this-> surname,
                 'dob' => $this-> dob,
@@ -26,7 +26,7 @@
                 'inscriptionDate' => $this-> inscriptionDate,
                 'validated' => $this-> validated,
                 'deleted' => $this-> deleted,
-            ];
+                ];
         }
 
         public function delete(){
@@ -39,5 +39,5 @@
         public function validate(){
 
         }
-    }
+        }
 ?>
