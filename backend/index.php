@@ -2,11 +2,9 @@
 session_start();
 
 // Insert requires here
-require './config/database_connection.php';
-require './classes/user/client.class.php';
+require './classes/database_handler.class.php';
 
 // Import stuff here
-require './classes/child.class.php';
 
 ?>
 <!DOCTYPE html>
@@ -24,7 +22,9 @@ require './classes/child.class.php';
 
         <!-- test code here -->
         <?php
-        
+
+        $db = new DatabaseHandler;
+        $db -> connectToDatabase();
         ?>
 
     </body>
