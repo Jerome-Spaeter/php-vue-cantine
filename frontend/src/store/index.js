@@ -2,25 +2,23 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    columns:[],
-    users: [],
-    usersRequest: [],
+    usersrequest: [],
+    userlist: [],
   },
   getters: {
   },
   mutations: {
-    setUsers(state,newValue){
-      state.users=newValue;
-    },
     setUsersRequest(state,newValue){
-      state.usersRequest=newValue;
+      state.usersrequest=newValue;
     },
     deleteUser(state, id){
-      state.users.splice(state.users.findIndex(user => user.id == id), 1);
+      state.usersrequest.splice(state.usersrequest.findIndex(usersrequest => usersrequest.id == id), 1);
     },
-    validateUser(state, validateUserValue){
-      state.usersRequest.splice(state.users.length, 0, validateUserValue);
-    }
+    validateUser(state,requestId){
+      let user = state.usersrequest[requestId];
+      console.log(user)
+      state.userlist.splice(state.userlist.length, 0, user);
+    },
   },
   actions: {
   },

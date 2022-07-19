@@ -4,7 +4,7 @@
       <div class="modal-wrapper">
         <div class="modal-container">
           <div class="modal-header">
-              <h3>Etes-vous sûr de vouloir supprimer l'utilisateur {{ userName.toUpperCase() }} ?</h3>
+              <h3>Etes-vous sûr de vouloir supprimer l'utilisateur "{{ userName.toUpperCase() }}" ?</h3>
           </div>
           <div class="modal-footer">
             <slot name="footer">
@@ -58,17 +58,17 @@ export default {
   width: 600px;
   margin: 0px auto;
   padding: 20px 30px;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  background-color: #F2F2F2;
+  border-radius: 30px;
   transition: all 0.3s ease;
+  border: 5px solid rgb(218, 218, 218);
 }
 
 .modal-header h3 {
   text-align: center;
   margin-top: 0;
   line-height: 1.5rem;
-  color: #2c3e50;
+  color: black;
 }
 
 .modal-footer {
@@ -78,20 +78,19 @@ export default {
 
 .modal-default-button {
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 800;
   text-align: center;
-  color: #c5d0c6;
-  padding: .5rem;
+  color: white;
+  padding: 0.8rem;
   margin: 1rem 1rem;
-  border-radius: 10px;
+  border-radius: 30px;
   box-shadow: #c5d0c6 1.95px 1.95px 2.6px;
-  background-color: #154a44;
+  background-color: #FFBF38;
+  border: none;
 }
 
 .modal-default-button:hover {
-  color: white;
-  background-color: #4e7b7f;
-  box-shadow: black 1.95px 1.95px 2.6px;
+  background-color: #FFDC92;
 }
 
 /*
@@ -135,10 +134,11 @@ export default {
   width: 400px;
   margin: 0px auto;
   padding: 20px 30px;
-  background-color: #fff;
+  background-color: #F2F2F2;;
   border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  box-shadow: 0 2px 8px rgb(218, 218, 218);
   transition: all 0.3s ease;
+
 }
 
 .modal-header h3 {
@@ -168,7 +168,6 @@ export default {
 .modal-default-button:hover {
   color: white;
   background-color: #4e7b7f;
-  box-shadow: black 1.95px 1.95px 2.6px;
 }
 .modal-enter-from {
   opacity: 0;
@@ -241,8 +240,7 @@ export default {
 
 .modal-default-button:hover {
   color: white;
-  background-color: #4e7b7f;
-  box-shadow: black 1.95px 1.95px 2.6px;
+  background-color: #FFDC92;
 }
 .modal-enter-from {
   opacity: 0;
