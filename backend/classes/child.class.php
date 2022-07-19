@@ -1,32 +1,32 @@
 <?php
-    class Child{
+    class Child {
         public $table; // name of the table
 
-        protected $childId;
-        protected $childFirstname;
-        protected $childSurname;
-        protected $childDob;
-        protected $childAllergies;
-        protected $childBoard;
-        protected $childInscriptionDate;
-        protected $childValidated;
-        protected $childDeleted;
+        protected $id;
+        protected $firstname;
+        protected $surname;
+        protected $dob;
+        protected $allergies;
+        protected $board;
+        protected $inscriptionDate;
+        protected $validated;
+        protected $deleted;
 
-        public function __construct($table, $childId, $childFirstname, $childSurname, 
-        $childDob, $childAllergies, $childBoard, $childInscriptionDate, $childValidated, $childDeleted){
+        public function __construct($table, $id, $firstname, $surname, 
+        $dob, $allergies, $board, $inscriptionDate, $validated, $deleted){
             $this->table = $table;
-            $this->childId = $childId;
-            $this->childFirstname = $childFirstname;
-            $this->childSurname = $childSurname;
-            $this->childDob = $childDob;
-            $this->childAllergies = $childAllergies;
-            $this->childBoard = $childBoard;
-            $this->childInscriptionDate = $childInscriptionDate;
-            $this->$childValidated = $childValidated;
-            $this->childDeleted = $childDeleted;
+            $this->id = $id;
+            $this->firstname = $firstname;
+            $this->surname = $surname;
+            $this->dob = $dob;
+            $this->allergies = $allergies;
+            $this->board = $board;
+            $this->inscriptionDate = $inscriptionDate;
+            $this->validated = $validated;
+            $this->deleted = $deleted;
         }
         public function get(){
-            return $currentChildInformation = [
+            return $currentInformation = [
                 
             ];
         }
@@ -40,7 +40,7 @@
         public function update(){
 
         }
-       
+
         public function validate(){
 
         }
