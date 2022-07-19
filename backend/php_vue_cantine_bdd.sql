@@ -33,8 +33,7 @@ USE `php-vue-cantine`;
 CREATE TABLE `user` (
   `user_id` bigint(7) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `user_username` varchar(25) NOT NULL,
-  `is_admin` BIT(1) NOT NULL,
-  `is_super_admin` BIT(1) NOT NULL,
+  `user_profile_type` tinyint(1) NOT NULL,
   `user_deleted` BIT(1) NOT NULL,
   `user_validated` BIT(1) NOT NULL,
   `user_firstname` varchar(50) NOT NULL,
@@ -93,8 +92,7 @@ ALTER TABLE `invoice` ADD FOREIGN KEY (`fk_parent_id`) REFERENCES user(user_id);
 
 
 INSERT INTO user (
-  is_admin, 
-  is_super_admin, 
+  user_profile_type, 
   user_deleted, 
   user_validated,
   user_username, 
@@ -111,7 +109,6 @@ INSERT INTO user (
   )
 VALUES (
   0,
-  1,
   0,
   1,
   'SuperAdmin',
@@ -129,7 +126,6 @@ VALUES (
   (
   1,
   0,
-  0,
   1,
   'Admin',
   '',
@@ -144,8 +140,7 @@ VALUES (
   '2021-01-01'
   ),
   (
-  0,
-  0,
+  2,
   0,
   1,
   'ellaSana',
@@ -161,8 +156,7 @@ VALUES (
   '2021-08-12'
   ),
   (
-  0,
-  0,
+  2,
   0,
   0,
   'samirMachin',

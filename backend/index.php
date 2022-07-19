@@ -2,11 +2,9 @@
 session_start();
 
 // Insert requires here
-require './config/database_connection.php';
-require './classes/user/client.class.php';
+require './classes/database_handler.class.php';
 
 // Import stuff here
-require './classes/child.class.php';
 
 ?>
 <!DOCTYPE html>
@@ -24,14 +22,6 @@ require './classes/child.class.php';
 
         <!-- test code here -->
         <?php
-
-        $john = new Client(false, false, true, false, 'User', 3, 'John', 'Doe', 'M', 'JDoe', 'jdoe@orange.fr', '2021-08-05', '0123456789', '2 rue des marchands', 'paris', '111111');
-
-
-        $john = new Client(2, true, false, 'User', 3, 'John', 'Doe', 'M', 'JDoe', 'jdoe@orange.fr', '2021-08-05', '0123456789', '2 rue des marchands', 'paris', '111111');
-
-        
-        var_dump($john -> getCurrentUserInformation()) ;
 
         ?>
 
