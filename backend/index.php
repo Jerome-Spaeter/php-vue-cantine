@@ -23,8 +23,6 @@ require './classes/database_handler.class.php';
         <!-- test code here -->
         <?php
 
-        $db = new DatabaseHandler;
-        $db -> connectToDatabase();
         ?>
 
     </body>
