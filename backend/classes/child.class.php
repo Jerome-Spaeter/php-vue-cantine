@@ -1,8 +1,8 @@
 <?php
-    class Child {
+class Child {
         public $table; // name of the table
 
-        protected $id;
+        protected $childId;
         protected $firstname;
         protected $surname;
         protected $dob;
@@ -12,28 +12,23 @@
         protected $validated;
         protected $deleted;
 
-        public function __construct($table, $id, $firstname, $surname, 
-        $dob, $allergies, $board, $inscriptionDate, $validated, $deleted){
-            $this->table = $table;
-            $this->id = $id;
-            $this->firstname = $firstname;
-            $this->surname = $surname;
-            $this->dob = $dob;
-            $this->allergies = $allergies;
-            $this->board = $board;
-            $this->inscriptionDate = $inscriptionDate;
-            $this->validated = $validated;
-            $this->deleted = $deleted;
-        }
-        public function get(){
-            return $currentInformation = [
-                
-            ];
+        public function createChild(){
+        //    <code to be added>
         }
 
-        public function create(){
-
+        public function get(){       
+                return $currentChildInformation = [
+                'firstname' => $this-> firstname,
+                'surname' => $this-> surname,
+                'dob' => $this-> dob,
+                'allergies' => $this-> allergies,
+                'board' => $this-> board,
+                'inscriptionDate' => $this-> inscriptionDate,
+                'validated' => $this-> validated,
+                'deleted' => $this-> deleted,
+                ];
         }
+
         public function delete(){
 
         }
@@ -44,5 +39,5 @@
         public function validate(){
 
         }
-    }
+        }
 ?>
