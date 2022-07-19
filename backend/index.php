@@ -1,13 +1,13 @@
 <?php
 session_start();
-<<<<<<< Updated upstream
+
 // Insert requires here
 require './config/database_connection.php';
 require './classes/user/client.class.php';
-=======
+
 // Import stuff here
 require './classes/child.class.php';
->>>>>>> Stashed changes
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,17 +21,15 @@ require './classes/child.class.php';
     </head>
     <body>
         <h1>PHP Cantine testing grounds</h1>
-<<<<<<< Updated upstream
+
         <!-- test code here -->
         <?php
+
         $john = new Client(false, false, true, false, 'User', 3, 'John', 'Doe', 'M', 'JDoe', 'jdoe@orange.fr', '2021-08-05', '0123456789', '2 rue des marchands', 'paris', '111111');
-=======
 
-        <!-- Test your code here -->
-        <?php
-        
 
->>>>>>> Stashed changes
+        <!-- $john = new Client(2, true, false, 'User', 3, 'John', 'Doe', 'M', 'JDoe', 'jdoe@orange.fr', '2021-08-05', '0123456789', '2 rue des marchands', 'paris', '111111');  -->
+
         
         var_dump($john -> getCurrentUserInformation()) ;
 
