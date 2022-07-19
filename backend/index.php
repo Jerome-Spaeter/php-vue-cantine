@@ -28,7 +28,7 @@ require './classes/child.class.php';
         $john = new Client(false, false, true, false, 'User', 3, 'John', 'Doe', 'M', 'JDoe', 'jdoe@orange.fr', '2021-08-05', '0123456789', '2 rue des marchands', 'paris', '111111');
 
 
-        <!-- $john = new Client(2, true, false, 'User', 3, 'John', 'Doe', 'M', 'JDoe', 'jdoe@orange.fr', '2021-08-05', '0123456789', '2 rue des marchands', 'paris', '111111');  -->
+        $john = new Client(2, true, false, 'User', 3, 'John', 'Doe', 'M', 'JDoe', 'jdoe@orange.fr', '2021-08-05', '0123456789', '2 rue des marchands', 'paris', '111111');
 
         
         var_dump($john -> getCurrentUserInformation()) ;
