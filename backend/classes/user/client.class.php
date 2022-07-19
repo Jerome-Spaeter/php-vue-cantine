@@ -2,27 +2,13 @@
     require './classes/user.class.php';
     class Client extends User {
         // user accessible data specific to parents
-        private $tel;
-        private $street;
-        private $city;
-        private $zipcode;
+        public $tel;
+        public $street;
+        public $city;
+        public $zipcode;
 
-        public function __construct(
-            $accountType, $validated, 
-            $deleted, $table, $userId, 
-            $firstname, $surname, $gender, 
-            $username, $email, $createdDate, 
-            $tel, $street, $city, $zipcode
-            )
-        {
-            parent::__construct(
-                $accountType, $validated, $deleted, $table, $userId, 
-                $firstname, $surname, $gender, $username, $email, $createdDate
-            );
-            $this -> tel = $tel;
-            $this -> street = $street;
-            $this -> city = $city;
-            $this -> zipcode = $zipcode;
+        public function createClient(){
+
         }
 
         // returns object
