@@ -46,6 +46,5 @@
             $this -> email = $email;
             $this -> createdDate = $createdDate;
         }
-
     }
 ?>
