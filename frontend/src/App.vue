@@ -14,22 +14,20 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-size: 18px;
+    font-size: 16px;
   }
 
 nav{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
+  align-content: center;
 }
 .liens{
-  width: 70%;
+  width: 35%;
   display: flex;
   justify-content: space-evenly;
 }
-img{
-  width: 8%;
-}
+
 a{
   text-decoration: none;
   font-size: 2rem;

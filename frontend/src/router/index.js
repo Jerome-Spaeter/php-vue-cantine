@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue';
 import Connexion from '../views/ConnexionView.vue'
-import About from '../views/AboutView.vue'
+import Inscription from '../views/InscriptionView.vue'
 
 const routes = [
   {
@@ -10,9 +10,9 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    component: About
+    path: '/inscription',
+    name: 'inscription',
+    component: Inscription
   },
   {
     path: '/connexion',

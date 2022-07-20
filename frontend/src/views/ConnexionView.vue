@@ -1,11 +1,12 @@
 <template>
     <body>
         <div class="connexion">
-            <section class="image">
+            <section class="imageco">
                 <div ></div>
             </section>
             <section class="login">
                 <h1>Connexion</h1>
+                <p>Vous n'êtes pas encore inscrit ? Cliquez sur Inscription dans la barre de navigation.</p>
                 <form>
                     <div class="user">
                         <label for="user_mail">
@@ -37,14 +38,13 @@ body{
 }
 
 .connexion {
-    border: 1px solid black;
     height: 100vh;
     display: flex;
     justify-content: space-evenly;
     margin-top: 3rem;
 }
 
-.image {
+.imageco {
     width: 50%;
     background-image: url("@/assets/img/image_connexion.jpg");
     height: 100vh;
@@ -63,4 +63,11 @@ body{
 h1 {
     text-align: center;
 }
+
+.user {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
 </style>
