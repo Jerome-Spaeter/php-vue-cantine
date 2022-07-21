@@ -1,46 +1,88 @@
 <?php
     require './classes/user.class.php';
+
+
     class Client extends User {
         // user accessible data specific to parents
-        private $tel;
-        private $street;
-        private $city;
-        private $zipcode;
+        public $deleted=false;
+        public $validated=false;
+        public $profileType = 2;
+        public $username;
+        public $firstname;
+        public $surname;
+        public $password;
+        
+        public $email;
+        public $tel;
+        
+        public $street;
+        public $city;
+        public $zipcode;
+        public $inscriptionDate;
 
-        public function __construct(
-            $isAdmin, $isSuperAdmin, $validated, 
-            $deleted, $table, $userId, 
-            $firstname, $surname, $gender, 
-            $username, $email, $createdDate, 
-            $tel, $street, $city, $zipcode
-            )
-        {
-            parent::__construct(
-                $isAdmin, $isSuperAdmin, $validated, $deleted, $table, $userId, 
-                $firstname, $surname, $gender, $username, $email, $createdDate
-            );
-            $this -> tel = $tel;
-            $this -> street = $street;
-            $this -> city = $city;
-            $this -> zipcode = $zipcode;
-        }
+        public function createUser(){
+            $sqlQuery = "INSERT INTO
+                        ". $this->dbTable ."
+                    SET
+                    user_validated = :false,
+                    user_deleted = :false,
+                    user_username = :username, 
+                    user_firstname = :firstname,
+                    user_surname = :surname,
+                    user_email = :email, 
+                    user_tel = :tel,
+                    user_password = :password,
+                    user_street = :street,
+                    user_city = :city,
+                    user_zipcode = :zipcode,
+                    user_profile_type = :profileType,
+                    user_inscription_date = now()";
+
+                $stmt = $this->connect->prepare($sqlQuery);
+                $this->username=htmlspecialchars(strip_tags($this->username));
+                $this->firstname=htmlspecialchars(strip_tags($this->firstname));
+                $this->email=htmlspecialchars(strip_tags($this->email));
+                $this->tel=htmlspecialchars(strip_tags($this->tel));
+                $this->password=htmlspecialchars(strip_tags($this->password));
+                $this->street=htmlspecialchars(strip_tags($this->street));
+                $this->city=htmlspecialchars(strip_tags($this->city));
+                $this->zipcode=htmlspecialchars(strip_tags($this->zipcode));
+                $this->profileType=htmlspecialchars(strip_tags($this->profileType));
+                $this->deleted=htmlspecialchars(strip_tags($this->deleted));
+                $this->validated=htmlspecialchars(strip_tags($this->validated));
+
+                $stmt->bindParam(":username", $this->username);
+                $stmt->bindParam(":firstname", $this->firstname);
+                $stmt->bindParam(":surname", $this->surname);
+                $stmt->bindParam(":email", $this->email);
+                $stmt->bindParam(":tel", $this->tel);
+                $stmt->bindParam(":password", $this->password);
+                $stmt->bindParam(":street", $this->street);
+                $stmt->bindParam(":city", $this->city);
+                $stmt->bindParam(":zipcode", $this->zipcode);
+                $stmt->bindParam(":profileType", $this->profileType);
+                $stmt->bindParam(":deleted", $this->deleted);
+                $stmt->bindParam(":validated", $this->validated);
+            
+                if($stmt->execute()){
+                    return true;
+                }
+                return false;
+            }
 
         // returns object
         public function getCurrentUserInformation() {
             return $currentUserInformation = [
+                'username' => $this -> username,
                 'firstname' => $this -> firstname,
                 'surname' => $this -> surname,
-                'gender' => $this -> gender,
-                'username' => $this -> username,
                 'email' => $this -> email,
-                'createdDate' => $this -> createdDate,
                 'tel' => $this -> tel,
+                'password' => $this -> password,
                 'street' => $this -> street,
                 'city' => $this -> city,
                 'zipcode' => $this -> zipcode
             ];
-        }       
-        
-        
-    }
+        }    
+    }   
 ?>

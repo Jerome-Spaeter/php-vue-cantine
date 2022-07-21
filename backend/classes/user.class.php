@@ -1,31 +1,19 @@
 <?php
     class User {
         // user is connected boolean
-        private $connect;
+        public $connect;
 
         //table
-        private $dbTable = "user";
-        
-        // privilege booleans
-        protected $profileType;
-        protected $validated;
-        protected $deleted;
+        public $dbTable = "user";
 
-        protected $userId;
+        public $userId;
 
         // user accessible data
-        protected $username;
-        protected $firstname;
-        protected $surname;
-        protected $gender;
-        protected $email;
-        protected $tel;
-        protected $password;
-        protected $street;
-        protected $zipcode;
-        protected $city;
-        protected $inscriptionDate;
-
+        public $username;
+        public $firstname;
+        public $surname;
+        public $password;
+        
         public function __construct($db){
             $this->connect = $db;
         }
@@ -34,24 +22,22 @@
             $sqlQuery = "INSERT INTO
                         ". $this->dbTable ."
                     SET
-                    username = :username, 
-                    firstname = :firstname,
-                    surname = :surname,
-                    gender = :gender,
-                    email = :email, 
-                    tel = :tel,
-                    password = :password,
-                    street = :street,
-                    city = :city,
-                    zipcode = :zipcode,
-                    profileType = :profileType,
-                    inscriptionDate = now()";
+                    user_username = :username, 
+                    user_firstname = :firstname,
+                    user_surname = :surname,
+                    user_email = :email, 
+                    user_tel = :tel,
+                    user_password = :password,
+                    user_street = :street,
+                    user_city = :city,
+                    user_zipcode = :zipcode,
+                    user_profile_type = :2,
+                    user_inscription_date = now()";
         
             $stmt = $this->connnect->prepare($sqlQuery);
             $this->username=htmlspecialchars(strip_tags($this->username));
             $this->firstname=htmlspecialchars(strip_tags($this->firstname));
             $this->surname=htmlspecialchars(strip_tags($this->surname));
-            $this->gender=htmlspecialchars(strip_tags($this->gender));
             $this->email=htmlspecialchars(strip_tags($this->email));
             $this->tel=htmlspecialchars(strip_tags($this->tel));
             $this->password=htmlspecialchars(strip_tags($this->password));
@@ -63,7 +49,6 @@
             $stmt->bindParam(":username", $this->username);
             $stmt->bindParam(":firstname", $this->firstname);
             $stmt->bindParam(":surname", $this->surname);
-            $stmt->bindParam(":gender", $this->gender);
             $stmt->bindParam(":email", $this->email);
             $stmt->bindParam(":tel", $this->tel);
             $stmt->bindParam(":password", $this->password);

@@ -1,5 +1,5 @@
 <?php
-class Child {
+    class Child {
         public $table; // name of the table
 
         protected $childId;
@@ -26,7 +26,7 @@ class Child {
                 'inscriptionDate' => $this-> inscriptionDate,
                 'validated' => $this-> validated,
                 'deleted' => $this-> deleted,
-                ];
+                        ];
         }
 
         public function delete(){
