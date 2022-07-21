@@ -59,7 +59,7 @@ CREATE TABLE `child` (
   `child_surname` varchar(30) NOT NULL,
   `child_dob` date NOT NULL,
   `child_inscription_date` date NOT NULL,
-  `child_allergies` varchar (20) NOT NULL,
+  `child_allergies` TEXT (500) NOT NULL,
   `child_board` varchar (25) NOT NULL,
   `child_deleted` BIT(1) NOT NULL,
   `child_validated` BIT(1) NOT NULL
