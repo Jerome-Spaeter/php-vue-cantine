@@ -1,12 +1,12 @@
 <?php
     require './classes/user.class.php';
 
-
     class Client extends User {
         // user accessible data specific to parents
-        public $deleted=false;
-        public $validated=false;
-        public $profileType = 2;
+        public $connect;
+        public $deleted= 0;
+        public $validated= 0;
+        const PROFILETYPE = 2;
         public $username;
         public $firstname;
         public $surname;
@@ -22,10 +22,10 @@
 
         public function createUser(){
             $sqlQuery = "INSERT INTO
-                        ". $this->dbTable ."
+                        ". User::DBTABLE ."
                     SET
-                    user_validated = :false,
-                    user_deleted = :false,
+                    user_validated = :validated,
+                    user_deleted = :deleted,
                     user_username = :username, 
                     user_firstname = :firstname,
                     user_surname = :surname,
@@ -41,6 +41,7 @@
                 $stmt = $this->connect->prepare($sqlQuery);
                 $this->username=htmlspecialchars(strip_tags($this->username));
                 $this->firstname=htmlspecialchars(strip_tags($this->firstname));
+                $this->surname=htmlspecialchars(strip_tags($this->surname));
                 $this->email=htmlspecialchars(strip_tags($this->email));
                 $this->tel=htmlspecialchars(strip_tags($this->tel));
                 $this->password=htmlspecialchars(strip_tags($this->password));
