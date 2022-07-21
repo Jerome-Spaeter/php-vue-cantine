@@ -68,7 +68,6 @@
             'validated' => $this-> validated,
             'deleted' => $this-> deleted,
             ];
-
         }
 
         public function delete(){

@@ -17,8 +17,10 @@
     // $simulatedRequest -> allergies = '';
     // $simulatedRequest -> board = '1';
 
-    $data = json_decode(file_get_contents("php://input"));
     // $data = $simulatedRequest;
+
+
+    $data = json_decode(file_get_contents("php://input"));
 
     $item->parentId = $data->parentId;
     $item->firstname = $data->firstname;

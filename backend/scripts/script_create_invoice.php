@@ -8,13 +8,13 @@
     $item = new Invoice ($db);
 
     // Simulate creation of a new invoice:
-    $simulatedRequest = new stdClass();
-
-    $simulatedRequest -> childId = 2;
-    $simulatedRequest -> amount = 45;
+    // $simulatedRequest = new stdClass();
+    // $simulatedRequest -> childId = 2;
+    // $simulatedRequest -> amount = 45;
+    // $data = $simulatedRequest;
     
-    // $data = json_decode(file_get_contents("php://input"));
-    $data = $simulatedRequest;
+    $data = json_decode(file_get_contents("php://input"));
+    
 
     $item->childId = $data->childId;
     $item->amount = $data->amount;

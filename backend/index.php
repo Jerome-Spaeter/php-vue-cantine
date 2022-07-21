@@ -3,7 +3,6 @@ session_start();
 
 // Insert requires here
 
-require './scripts/script_create_invoice.php';
 
 
 // Import stuff here

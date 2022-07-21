@@ -14,7 +14,7 @@
         public $date;
 
         // Paid date
-        private $paid ='';
+        private $paid;
 
         public function __construct($db){
             $this->connect = $db;
