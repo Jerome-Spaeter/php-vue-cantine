@@ -4,12 +4,12 @@
             <div class="image">
             </div>
             <section class="login">
-                <h1>Inscription</h1>
+                <h1>Créer un nouveau compte</h1>
                 <p>Vous n'êtes pas encore inscrit ? Cliquez sur Inscription dans la barre de navigation.</p>
-                <form id="form-inscription">
-                    <div class="coordonnees">
+                <form>
+                    <div class="user-info">
                         <label for="last_name">VEUILLEZ SAISIR VOTRE NOM
-                            <input type="text" name="nom" required>
+                            <input type="text" name="nom" placeholder="Nom" required>
                         </label>
                         <label for="first_name">VEUILLEZ SAISIR VOTRE PRENOM
                             <input type="text" name="prenom" placeholder="Prenom">
@@ -17,31 +17,24 @@
                         <label for="mail">VEUILLEZ SAISIR VOTRE E-MAIL
                             <input type="text" name="mail" placeholder="Mail">
                         </label>
-                        <label for="genre"> ok
-                            <select name="" id="">
-                                <option value="">bc</option>
-                                <option value="">cd</option>
-                            </select>
+                        <label for="tel ">VEUILLEZ SAISIR VOTRE NUMERO DE TELEPHONE
+                            <input type="text" name="telephone" placeholder="Téléphone">
                         </label>
                         <label for="rue_name">VEUILLEZ SAISIR VOTRE ADRESSE
                             <input type="text" name="adresse" placeholder="Adresse">
                         </label>
-                        <label for="tel "> 
+                        <label for="tel">VEUILLEZ SAISIR VOTRE NUMERO DE TELEPHONE
                             <input type="text" name="telephone" placeholder="Téléphone">
                         </label>
-                        <label for="mdp" >
-                            <input type="password" name="mdp">
+                        <label for="mdp">VEUILLEZ SAISIR VOTRE MOT DE PASSE
+                            <input type="password" name="mdp" placeholder="********">
                         </label>
-                        <label for="confirm_mdp">
-                            <input type="password" name="confirm_mdp">
+                        <label for="confirm_mdp">VEUILLEZ CONFIRMEZ VOTRE MOT DE PASSE
+                            <input type="password" name="confirm_mdp" placeholder="********">
                         </label>
-                    </div>
-                    <div class="buttons">
-                        <div class="btns_co">
-                            <label for="btn_inscription">
-                                <input type="submit" id="btn_inscription" value="Inscrire mon enfant">
-                            </label>
-                        </div>
+                        <label for="btn_inscription">
+                            <input type="submit" id="btn_inscription" value="S'inscrire">
+                        </label>
                     </div>
                 </form>
             </section>
@@ -57,16 +50,11 @@ export default {
 
 <style>
 
-body{
-    height: 100%;
-}
-
 .inscription {
-    border: 1px solid black;
     height: 100vh;
     display: flex;
     justify-content: space-evenly;
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 
 .image {
@@ -79,19 +67,19 @@ body{
     }
 
 .login{
-    border: solid 1px black;
     width: 50%;
     display: flex;
     flex-direction:column;
 }
 
-h1 {
-    text-align: center;
+form {
+    display: flex;
+    justify-content: center;
 }
 
-.coordonnees {
+.user-info{
+    width: 50%;
     display: flex;
     flex-direction: column;
-    margin-left: 1rem;
 }
 </style>

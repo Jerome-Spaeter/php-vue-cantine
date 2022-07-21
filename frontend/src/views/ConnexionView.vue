@@ -1,24 +1,21 @@
 <template>
     <body>
         <div class="connexion">
-            <section class="imageco">
-                <div ></div>
-            </section>
+            <div class="imageco">
+            </div>
             <section class="login">
                 <h1>Connexion</h1>
                 <p>Vous n'êtes pas encore inscrit ? Cliquez sur Inscription dans la barre de navigation.</p>
-                <form>
-                    <div class="user">
-                        <label for="user_mail">
-                            <input type="text" id="user-identifiant" name="user_identifiant" placeholder="Identifiant">
-                        </label>
-                        <label for="password">
-                            <input type="text" id="user-mdp" name="user_mdp" placeholder="Mot de passe">
-                        </label>
-                        <label for="btn_mdp_oublie">
-                            <input type="button" id="btn_mdp_oublie" value="Mot de passe oublié?">
-                        </label>
-                    </div>
+                <form class="user-login">
+                    <label for="user_name">VEUILLEZ SAISIR VOTRE IDENTIFIANT
+                        <input type="text" id="user_identifiant" name="user_name">
+                    </label>
+                    <label for="password">VEUILLEZ SAISIR VOTRE MOT DE PASSE
+                        <input type="text" id="user_mdp" name="user_mdp">
+                    </label>
+                    <label for="btn_mdp_oublie">
+                        <input type="submit" id="btn_mdp_oublie" value="Se connecter">
+                    </label>
                 </form>
             </section>
         </div>
@@ -33,15 +30,10 @@ export default {
 
 <style>
 
-body{
-    height: 100%;
-}
-
 .connexion {
     height: 100vh;
     display: flex;
-    justify-content: space-evenly;
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 
 .imageco {
@@ -53,21 +45,11 @@ body{
     background-size: cover;
     }
 
-.login{
-    border: solid 1px black;
-    width: 50%;
-    display: flex;
-    flex-direction:column;
-}
-
-h1 {
-    text-align: center;
-}
-
-.user {
+.user-login {
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    margin-left: 1rem;
+    width: 50%;
 }
 
 </style>
