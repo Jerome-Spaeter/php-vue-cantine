@@ -20,6 +20,10 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `php-vue-cantine`
 --
+
+DROP DATABASE IF EXISTS `php-vue-cantine`; 
+-- a verifier si fonctionne avec documentation
+
 CREATE DATABASE IF NOT EXISTS `php-vue-cantine` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `php-vue-cantine`;
 
@@ -48,9 +52,9 @@ CREATE TABLE `user` (
 )
   ENGINE = InnoDB;
 
-  CREATE TABLE `child` (
+CREATE TABLE `child` (
   `child_id` bigint(7) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `fk_parent_id` bigint(7) UNSIGNED NOT NULL,
+  `fk_client_id` bigint(7) UNSIGNED NOT NULL,
   `child_firstname` varchar(50) NOT NULL,
   `child_surname` varchar(30) NOT NULL,
   `child_dob` date NOT NULL,
@@ -62,32 +66,31 @@ CREATE TABLE `user` (
 )
   ENGINE = InnoDB;
 
-  CREATE TABLE `message` (
-    `msg_id` bigint (7) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `fk_parent_id` bigint (7) UNSIGNED NOT NULL,
-    `msg_content` TEXT NOT NULL,
-    `msg_date` date NOT NULL,
-    `msg_read` BIT(1) NOT NULL,
-    `msg_sender_parent` BIT(1) NOT NULL
+CREATE TABLE `message` (
+  `msg_id` bigint(7) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `fk_client_id` bigint(7) UNSIGNED NOT NULL,
+  `msg_content` TEXT NOT NULL,
+  `msg_date` date NOT NULL,
+  `msg_read` BIT(1) NOT NULL,
+  `msg_sender_client` BIT(1) NOT NULL
 )
   ENGINE = InnoDB;
 
-  CREATE TABLE `invoice` (
-    `invoice_id` bigint (7) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `fk_parent_id` bigint (7) UNSIGNED NOT NULL,
-    `fk_child_id` bigint (7) UNSIGNED NOT NULL,
-    `invoice_amount` TEXT NOT NULL,
-    `invoice_period` TEXT NOT NULL,
-    `invoice_date` date NOT NULL,
-    `invoice_paid` BIT (1) NOT NULL
-  )
-    ENGINE = InnoDB;
+CREATE TABLE `invoice` (
+  `invoice_id` bigint(7) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `fk_child_id` bigint(7) UNSIGNED NOT NULL,
+  `invoice_amount` float(6) NOT NULL,
+  `invoice_period` int(2) UNSIGNED NOT NULL,
+  `invoice_date` date NOT NULL,
+  `invoice_paid` date
+)
+  ENGINE = InnoDB;
 
 -- Add foreign keys
 ALTER TABLE `user` ADD UNIQUE KEY `user_username` (`user_username`);
-ALTER TABLE `child` ADD FOREIGN KEY (`fk_parent_id`) REFERENCES user(user_id);
-ALTER TABLE `message` ADD FOREIGN KEY (`fk_parent_id`) REFERENCES user(user_id);
-ALTER TABLE `invoice` ADD FOREIGN KEY (`fk_parent_id`) REFERENCES user(user_id);
+ALTER TABLE `child` ADD FOREIGN KEY (`fk_client_id`) REFERENCES user(user_id);
+ALTER TABLE `message` ADD FOREIGN KEY (`fk_client_id`) REFERENCES user(user_id);
+ALTER TABLE `invoice` ADD FOREIGN KEY (`fk_child_id`) REFERENCES child(child_id);
 
 
 INSERT INTO user (
@@ -168,7 +171,7 @@ VALUES (
   ;
 
 INSERT INTO child (
-  fk_parent_id,
+  fk_client_id,
   child_firstname,
   child_surname,
   child_dob,
@@ -202,11 +205,11 @@ VALUES (
 );
 
 INSERT INTO message (
-  fk_parent_id,
+  fk_client_id,
   msg_content,
   msg_date,
   msg_read,
-  msg_sender_parent
+  msg_sender_client
 )
 VALUES (
   3,
@@ -224,7 +227,6 @@ VALUES (
 );
 
 INSERT INTO invoice (
-  fk_parent_id,
   fk_child_id,
   invoice_amount,
   invoice_period,
@@ -232,18 +234,16 @@ INSERT INTO invoice (
   invoice_paid
 )
 VALUES (
-  3,
   2,
   35,
   "juillet",
   '2021-08-03',
-  0
+  ''
 ),
 (
-  4,
   1,
   60,
   "juillet",
   '2021-08-03',
-  0
+  ''
 )

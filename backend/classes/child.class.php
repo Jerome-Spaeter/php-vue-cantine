@@ -12,8 +12,8 @@
         public $allergies;
         public $board;
         public $inscriptionDate;
-        public $validated = false;
-        public $deleted = false;
+        public $validated = 0;
+        public $deleted = 0;
 
         public function __construct($db) {
             $this->connect = $db;
@@ -23,7 +23,7 @@
             $sqlQuery = "INSERT INTO
                         ". $this->dbTable ."
                     SET
-                    fk_parent_id = :parentId,
+                    fk_client_id = :parentId,
                     child_firstname = :firstname,
                     child_surname = :surname,
                     child_dob = :dob,
