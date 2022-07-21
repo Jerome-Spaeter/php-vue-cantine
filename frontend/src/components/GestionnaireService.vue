@@ -5,30 +5,32 @@
     <div class="liste-parents" v-for="userlist in allUserslist">
       <span class="info-parents">{{ userlist.id }}</span>
       <span class="info-parents">{{ userlist.name }}</span>
+      <span class="info-parents">{{ userlist.username }}</span>
       <span class="info-parents">{{ userlist.email }}</span>
       <span class="info-parents">{{ userlist.phone }}</span>
       <input type="button" @click="afficherModal(userlist.id , userlist.username)" class="btn-supr" value="Supprimer">
-      <Teleport to="body">
-        <modalSupprimer :show="showModal" :userId="activeUserId" :userName="activeUserName" @cancel="showModal = false" @confirm="removeUser"></modalSupprimer>
-      </Teleport>
     </div>
+    <Teleport to="body">
+      <modalSupprimer :show="showModal" :userId="activeUserId" :userName="activeUserName" @cancel="showModal = false" @confirm="removeUser"></modalSupprimer>
+    </Teleport>
   </section>
   <h2>Demandes d'inscription</h2>
-    <section class="section-parents-demandes">
-      <div class="liste-parents-demandes" v-for="usersRequest in allUsersRequest">
-        <span class="info-parents">{{ usersRequest.id }} </span>
-        <span class="info-parents">{{ usersRequest.name }}</span>
-        <span class="info-parents">{{ usersRequest.email }}</span>
-        <span class="info-parents">{{ usersRequest.phone }}</span>
-        <div class="btn-box">
-          <input type="button"  @click="ajouterUser(usersRequest.id)" value="Valider" class="btn-valider">
-          <input type="button" @click="afficherModal(usersRequest.id , usersRequest.username)" class="btn-refuser" value="Refuser">
-          <Teleport to="body">
-            <ModalRefus :show="showModal" :userId="activeUserId" :userName="activeUserName" @cancel="showModal = false" @confirm="removeUser"></ModalRefus>
-          </Teleport>
-        </div>
+  <section class="section-parents-demandes">
+    <div class="liste-parents-demandes" v-for="usersRequest in allUsersRequest">
+      <span class="info-parents">{{ usersRequest.id }} </span>
+      <span class="info-parents">{{ usersRequest.name }}</span>
+      <span class="info-parents">{{ usersRequest.username }}</span>
+      <span class="info-parents">{{ usersRequest.email }}</span>
+      <span class="info-parents">{{ usersRequest.phone }}</span>
+      <div class="btn-box">
+        <input type="button" @click="ajouterUser(usersRequest.id)" value="Valider" class="btn-valider">
+        <input type="button" @click="afficherModal(usersRequest.id , usersRequest.username)" class="btn-refuser" value="Refuser">
       </div>
-    </section>
+    </div>
+    <Teleport to="body">
+      <ModalRefus :show="showModal" :userId="activeUserId" :userName="activeUserName" @cancel="showModal = false" @confirm="removeRequest"></ModalRefus>
+    </Teleport>
+  </section>
 </div>
 </template>
 
@@ -60,7 +62,11 @@ export default {
       this.showModal = true;
     },
     removeUser(userId){
-      this.$store.commit("deleteUser", userId);
+      this.$store.commit("removeUser", userId);
+      this.showModal = false;
+    },
+    removeRequest(userId){
+      this.$store.commit("refuseRequest", userId);
       this.showModal = false;
     },
     ajouterUser(userId){
@@ -91,9 +97,9 @@ export default {
   flex-wrap: wrap;
   border: 5px solid whitesmoke;
   border-radius: 30px;
-  box-shadow: 5px 5px 5px;
-  color: rgb(212, 211, 211);
-  margin: 2rem;
+  border: 10px solid rgb(218, 218, 218);
+  color: black;
+  margin: 0.5rem;
 }
 .section-parents-demandes{
   display: flex;
