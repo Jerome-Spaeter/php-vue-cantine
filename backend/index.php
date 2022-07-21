@@ -2,9 +2,9 @@
 session_start();
 
 // Insert requires here
-require  './scripts/script_user_create.php';
-require './classes/user/client.class.php';
-require '.classes/database_handler.class.php';
+
+require './scripts/script_child_create.php';
+
 
 // Import stuff here
 
