@@ -2,7 +2,9 @@
 session_start();
 
 // Insert requires here
+
 require './scripts/script_child_create.php';
+
 
 // Import stuff here
 

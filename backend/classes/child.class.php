@@ -57,6 +57,7 @@
         }
 
         public function get(){       
+
             return $currentChildInformation = [
             'firstname' => $this-> firstname,
             'surname' => $this-> surname,
@@ -67,6 +68,7 @@
             'validated' => $this-> validated,
             'deleted' => $this-> deleted,
             ];
+
         }
 
         public function delete(){
