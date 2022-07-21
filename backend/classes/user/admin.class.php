@@ -22,8 +22,7 @@
                     user_firstname = :firstname,
                     user_surname = :surname,
                     user_email = :email, 
-                    user_password = :password,
-                    user_profile_type = :profileType,";
+                    user_password = :password";
 
                 $stmt = $this->connect->prepare($sqlQuery);
                 $this->username=htmlspecialchars(strip_tags($this->username));
@@ -31,7 +30,6 @@
                 $this->surname=htmlspecialchars(strip_tags($this->surname));
                 $this->email=htmlspecialchars(strip_tags($this->email));
                 $this->password=htmlspecialchars(strip_tags($this->password));
-                $this->profileType=htmlspecialchars(strip_tags($this->profileType));
                 $this->deleted=htmlspecialchars(strip_tags($this->deleted));
 
                 $stmt->bindParam(":username", $this->username);
@@ -39,7 +37,6 @@
                 $stmt->bindParam(":surname", $this->surname);
                 $stmt->bindParam(":email", $this->email);
                 $stmt->bindParam(":password", $this->password);
-                $stmt->bindParam(":profileType", $this->profileType);
                 $stmt->bindParam(":deleted", $this->deleted);
             
                 if($stmt->execute()){
