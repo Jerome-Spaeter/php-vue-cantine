@@ -19,7 +19,7 @@
 
     $item->clientId = $data->clientId;
 
-    $item->getChild();
+    $result = $item->getChildren();
     // TO DO : for each of item; generate json object; echo this object;
-    var_dump($item);
+    var_dump($result);
 ?>

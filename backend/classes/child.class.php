@@ -56,7 +56,7 @@
             return false;
         }
 
-        public function getChild(){       
+        public function getChildren(){       
             $sqlQuery= "SELECT * FROM " 
             . Child::DBTABLE .
             " WHERE 
