@@ -1,27 +1,27 @@
 <template>
 <Transition name="modal">
-    <div v-if="show" class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-          <div class="modal-header">
-              <h3>Etes-vous sûr de vouloir refuser la demande de "{{ userName.toUpperCase() }}" ?</h3>
-          </div>
-          <div class="modal-footer">
-            <slot name="footer">
-              <button
-                class="modal-default-button"
-                @click="$emit('confirm', userId )"
-              >CONFIRMER</button>
-              <button
-                class="modal-default-button"
-                @click="$emit('cancel')"
-              >ANNULER</button>
-            </slot>
-          </div>
+  <div v-if="show" class="modal-mask">
+    <div class="modal-wrapper">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Etes-vous sûr de vouloir refuser la demande de "{{ userName.toUpperCase() }}" ?</h3>
+        </div>
+        <div class="modal-footer">
+          <slot name="footer">
+            <button
+              class="modal-default-button"
+              @click="$emit('confirm', userId )"
+            >CONFIRMER</button>
+            <button
+              class="modal-default-button"
+              @click="$emit('cancel')"
+            >ANNULER</button>
+          </slot>
         </div>
       </div>
     </div>
-  </Transition>
+  </div>
+</Transition>
 </template>
 <script>
 export default {

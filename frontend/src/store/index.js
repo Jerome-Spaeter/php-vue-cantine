@@ -14,10 +14,10 @@ export default createStore({
     deleteUser(state, id){
       state.usersrequest.splice(state.usersrequest.findIndex(usersrequest => usersrequest.id == id), 1);
     },
-    validateUser(state,requestId){
-      let user = state.usersrequest[requestId];
+    validateUser(state, id){
+      let user = state.usersrequest[state.usersrequest.findIndex(usersrequest => usersrequest.id == id)];
       console.log(user)
-      state.userlist.splice(state.userlist.length, 0, user);
+      state.userlist.splice(state.usersrequest.length, 0, user);
     },
   },
   actions: {

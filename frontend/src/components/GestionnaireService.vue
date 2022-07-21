@@ -2,11 +2,12 @@
 <div class="gestionnaire">
   <h1>Liste des parents</h1>
   <section class="section-parents">
-    <div class="liste-parents" v-for="(userslist, index) in allUserslist" :key="index">
-      <span class="info-parents" v-for="(value, key, index) in userslist" :key="index">
-        {{key === 'address' ? value.city : key === 'company' ? value.name : value}}
-      </span>
-      <input type="button" @click="afficherModal(usersRequest.id , usersRequest.username)" class="btn-supr" value="Supprimer">
+    <div class="liste-parents" v-for="userlist in allUserslist">
+      <span class="info-parents">{{ userlist.id }}</span>
+      <span class="info-parents">{{ userlist.name }}</span>
+      <span class="info-parents">{{ userlist.email }}</span>
+      <span class="info-parents">{{ userlist.phone }}</span>
+      <input type="button" @click="afficherModal(userlist.id , userlist.username)" class="btn-supr" value="Supprimer">
       <Teleport to="body">
         <modalSupprimer :show="showModal" :userId="activeUserId" :userName="activeUserName" @cancel="showModal = false" @confirm="removeUser"></modalSupprimer>
       </Teleport>
@@ -15,10 +16,10 @@
   <h2>Demandes d'inscription</h2>
     <section class="section-parents-demandes">
       <div class="liste-parents-demandes" v-for="usersRequest in allUsersRequest">
-        <span class="info-parents">{{ usersRequest.id}} </span>
-        <span class="info-parents">{{ usersRequest.name}}</span>
-        <span class="info-parents">{{ usersRequest.email}}</span>
-        <span class="info-parents">{{ usersRequest.phone}}</span>
+        <span class="info-parents">{{ usersRequest.id }} </span>
+        <span class="info-parents">{{ usersRequest.name }}</span>
+        <span class="info-parents">{{ usersRequest.email }}</span>
+        <span class="info-parents">{{ usersRequest.phone }}</span>
         <div class="btn-box">
           <input type="button"  @click="ajouterUser(usersRequest.id)" value="Valider" class="btn-valider">
           <input type="button" @click="afficherModal(usersRequest.id , usersRequest.username)" class="btn-refuser" value="Refuser">
@@ -43,7 +44,7 @@ export default {
   data: 
     function() {
     return {
-      userslist:[],
+      userlist:[],
       allUserslist:[],
       usersRequest:[],
       allUsersRequest:[],
@@ -67,9 +68,8 @@ export default {
     }
   },
   beforeMount() {
-    this.allColumns = this.$store.state.columns;
     this.allUsersRequest = this.$store.state.usersrequest;
-    this.allUserslist= this.$store.state.userslist;
+    this.allUserslist= this.$store.state.userlist;
   },
 }
 </script>
