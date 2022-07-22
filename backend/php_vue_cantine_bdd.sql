@@ -59,7 +59,7 @@ CREATE TABLE `child` (
   `child_surname` varchar(30) NOT NULL,
   `child_dob` date NOT NULL,
   `child_inscription_date` date NOT NULL,
-  `child_allergies` varchar (20) NOT NULL,
+  `child_allergies` TEXT (500) NOT NULL,
   `child_board` varchar (25) NOT NULL,
   `child_deleted` BIT(1) NOT NULL,
   `child_validated` BIT(1) NOT NULL
@@ -141,7 +141,7 @@ VALUES (
   (
   2,
   0,
-  1,
+  0,
   'ellaSana',
   'Ella',
   'Pa',
@@ -190,6 +190,17 @@ VALUES (
   'Gluten',
   1,
   0,
+  0
+),
+(
+  4,
+  'Jerome',
+  'Machin',
+  '2012-07-14',
+  '2021-08-12',
+  'Boulot',
+  1,
+  0,
   1
 ),
 (
@@ -201,7 +212,7 @@ VALUES (
   'Joie, travail, la vie, Zerina',
   2,
   0,
-  0
+  1
 );
 
 INSERT INTO message (
