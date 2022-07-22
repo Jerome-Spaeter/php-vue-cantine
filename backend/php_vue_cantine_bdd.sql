@@ -141,7 +141,7 @@ VALUES (
   (
   2,
   0,
-  1,
+  0,
   'ellaSana',
   'Ella',
   'Pa',
@@ -190,6 +190,17 @@ VALUES (
   'Gluten',
   1,
   0,
+  0
+),
+(
+  4,
+  'Jerome',
+  'Machin',
+  '2012-07-14',
+  '2021-08-12',
+  'Boulot',
+  1,
+  0,
   1
 ),
 (
@@ -201,7 +212,7 @@ VALUES (
   'Joie, travail, la vie, Zerina',
   2,
   0,
-  0
+  1
 );
 
 INSERT INTO message (

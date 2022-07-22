@@ -72,11 +72,7 @@
             /* On récupère le résultat de la requête (1 seul résultat possible puisque le champ user_login est déclaré 'unique' dans la table users) et on le sotcke dans un tableau :
             */
             $tab = $res -> fetchAll();
-            if (empty($tab)) {
-                return $tab;
-            } else {
-                return 'aucun résultat trouvé pour cet utilisateur.';
-            }
+            return $tab;
         }
 
         public function delete(){
