@@ -18,8 +18,8 @@
 
     $result = $item->getChildren();
     if (empty($result)) {
-        return 'Aucun enfant a été trouvé pour cet utilisateur';
+        echo 'Aucun enfant a été trouvé pour cet utilisateur';
     } else {
-        return json_encode($result);
+        echo json_encode($result);
     }
 ?>
