@@ -1,5 +1,6 @@
 <?php
     require './classes/user/admin.class.php';
+    require './classes/database_handler.class.php';
 
     $database = new DatabaseHandler();
     $db = $database -> connectToDatabase();
