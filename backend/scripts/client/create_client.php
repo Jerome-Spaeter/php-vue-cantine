@@ -17,8 +17,6 @@
     // $simulatedRequest->street = "rue des charettes";
     // $simulatedRequest->city = "paris";
     // $simulatedRequest->zipcode = "92300";
-
-
     
     $data = json_decode(file_get_contents("php://input"));
     // $data = $simulatedRequest;
@@ -33,5 +31,5 @@
     $item->street = $data->street;
     $item->city = $data->city;
     $item->zipcode = $data->zipcode;
-    $item->createUser();    
+    $item->createUser();  
 ?>
