@@ -2,7 +2,7 @@
 session_start();
 
 // Insert requires here
-require './scripts/client/read_client.php';
+
 // Import stuff here
 
 ?>
