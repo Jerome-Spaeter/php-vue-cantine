@@ -2,7 +2,8 @@
 session_start();
 
 // Insert requires here
-
+require './classes/database_handler.class.php';
+require './scripts/script_create_client.php';
 
 // Import stuff here
 

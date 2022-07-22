@@ -6,7 +6,7 @@
         public $connect;
         public $deleted= 0;
         public $validated= 0;
-        const PROFILETYPE = 2;
+        private $profileType = 2;
         public $username;
         public $firstname;
         public $surname;
@@ -36,7 +36,7 @@
                     user_city = :city,
                     user_zipcode = :zipcode,
                     user_profile_type = :profileType,
-                    user_inscription_date = now()";
+                    user_inscription_date = now();";
 
                 $stmt = $this->connect->prepare($sqlQuery);
                 $this->username=htmlspecialchars(strip_tags($this->username));
@@ -48,7 +48,6 @@
                 $this->street=htmlspecialchars(strip_tags($this->street));
                 $this->city=htmlspecialchars(strip_tags($this->city));
                 $this->zipcode=htmlspecialchars(strip_tags($this->zipcode));
-                $this->profileType=htmlspecialchars(strip_tags($this->profileType));
                 $this->deleted=htmlspecialchars(strip_tags($this->deleted));
                 $this->validated=htmlspecialchars(strip_tags($this->validated));
 

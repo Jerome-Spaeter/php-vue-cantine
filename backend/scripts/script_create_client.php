@@ -1,5 +1,4 @@
 <?php
-    require './classes/database_handler.class.php';
     require './classes/user/client.class.php';
 
     $database = new DatabaseHandler();
@@ -8,15 +7,16 @@
     $item = new Client ($db);
 
     // $simulatedRequest= new stdClass();
-    // $simulatedRequest->username = "zer";
-    // $simulatedRequest->firstname = "zerina";
-    // $simulatedRequest->surname = "zed";
-    // $simulatedRequest->email = "blabla@bla.com";
-    // $simulatedRequest->tel = "0789647529";
+    // $simulatedRequest->username = "sayonara";
+    // $simulatedRequest->firstname = "bye";
+    // $simulatedRequest->surname = "auviedersen";
+    // $simulatedRequest->email = "good@by.com";
+    // $simulatedRequest->tel = "0787469529";
     // $simulatedRequest->password = "456";
-    // $simulatedRequest->street = "rue des vaillants";
-    // $simulatedRequest->city = "thionville";
-    // $simulatedRequest->zipcode = "54000";
+    // $simulatedRequest->street = "rue des charettes";
+    // $simulatedRequest->city = "paris";
+    // $simulatedRequest->zipcode = "92300";
+
 
     
     $data = json_decode(file_get_contents("php://input"));
