@@ -1,29 +1,51 @@
 <template>
     <main>
         <section class="image-enfant">  
+            <label for="photo"></label>
             <img src="../assets/img/2e43dd8c6eadd971b818debcbef67a69.jpg">
-            <h1>Enfant</h1>
+            <input type="file" class="photo" name="photo" accept="image/png, image/jpeg">
+            <!-- <h1>Enfant</h1> -->
         </section>  
         <section class="enfant">
             <h2>Demande d'inscription d'un enfant</h2>
-            <form method="POST">
-                <label>NOM<input class="nom" name="nom" type="text" placeholder="Nom" value=""></label>
-                <label>PRENOM<input class="prenom" name="prenom" type="text" placeholder="Prénom" value=""></label>
-                <label>DATE DE NAISSANCE<input class="date" name="date" type="date" min="1950-01-01" max="2022-07-18"></label>
+            <form @submit.prevent="submitForm">
+                <label>NOM<input id="nom" name="nom" type="text" placeholder="Nom" required v-model="nom"></label>
+                <label>PRENOM<input id="prenom" name="prenom" type="text" placeholder="Prénom" required v-model="prenom"></label>
+                <label>DATE DE NAISSANCE<input id="date" name="date" type="date" min="1950-01-01" max="2022-07-18" v-model="date"></label>
                 <label>REGIME CANTINE</label>
-                    <select name="regime" class="regime">
+                    <select name="regime" id="regime" v-model="regime">
                         <option value="">--Choisissez un régime de cantine svp--</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                     </select>                                   
                 <label for="allergie">ALLERGIES</label>
-                <textarea rows="3" cols="47">Gluten, Lactose, Arachide...</textarea>
+                <textarea rows="3" cols="47" v-model="allergie">Gluten, Lactose, Arachide...</textarea>
                 <button type="submit">Valider</button>
                 <button type="submit">Annuler</button>
             </form>
-        </section>      
+        </section>
     </main>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            nom: '',
+            prenom: '',
+            date: '',
+            regime: '',
+            allergie: '',
+        }
+    },
+    methods: {
+        submitForm () {
+            alert("Formulaire envoyé")
+        }
+    }
+}
+
+</script>
 
 
 <style scoped>
@@ -70,6 +92,7 @@ label {
 }
 
 input, select {
+    padding: 5px;
     width: 20rem;
     background-color: #F0F0F0;
     border: none;
@@ -78,7 +101,7 @@ input, select {
 }
 
 textarea {
-        background-color: #F0F0F0;
+    background-color: #F0F0F0;
     border: none;
     border-radius: 5px;
     color: #636363;
@@ -98,6 +121,11 @@ button {
 
 button:hover {
     background-color: #FFDC92;
+}
+
+.photo {
+    border: none;
+    background-color: white;
 }
 
 </style>

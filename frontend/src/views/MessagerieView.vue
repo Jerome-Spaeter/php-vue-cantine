@@ -8,20 +8,12 @@
         </section>  
         <section class="menu">
             <input class="recherche" onkeyup="search_msg()" type="text" name="recherche" placeholder="Rechercher...">
-            <div class="un">
+            <div v-for="perso in allUsers" :key="index"> 
+            <div class="info">
                 <img src="../assets/img/2e43dd8c6eadd971b818debcbef67a69.jpg">
-                <p class="nom">Brooklyn Simmons</p>
-                <p class="role">Gestionnaire de service</p>
+                <p class="nom">{{ perso.name }}</p>
+                <p class="role">{{ perso.email }}</p>
             </div>
-            <div class="deux">
-                <img src="../assets/img/2e43dd8c6eadd971b818debcbef67a69.jpg">
-                <p class="nom">Devon Lane</p>
-                <p class="role">Super Admin</p>
-            </div>
-            <div class="trois">
-                <img src="../assets/img/2e43dd8c6eadd971b818debcbef67a69.jpg">
-                <p class="nom">Kristin Watson</p>
-                <p class="role">Super Admin</p>
             </div>
         </section>
         <section class="messagerie">
@@ -41,6 +33,28 @@
         </section>
     </main>
 </template>
+
+<script>
+import axios from "axios"
+
+export default {
+    name: 'App',
+    data: function () {
+        return {
+            allUsers: [],
+        }
+    },
+    beforeMount() {
+            axios
+        .get("https://jsonplaceholder.typicode.com/users")
+        .then((reponse) => {
+            this.allUsers = reponse.data;
+            // console.log(this.allUsers);
+            console.log(this.allUsers[0]);
+        });
+    }
+}
+</script>
 
 
 <style scoped>
@@ -83,7 +97,7 @@ h2 {
 
 .icones {
     width: 10%;
-    height: 29rem;
+    height: 30rem;
     background-color:#FFBF38;
 }
 .logo-exit {
@@ -93,10 +107,11 @@ h2 {
 }
 .menu {
     width: 50%;
-    height: 29rem;
+    height: 30rem;
     background-color:#FFDC92;
 }
-.un, .deux, .trois {
+
+.info {
     /* display: flex; */
     padding: 0 10px;
 }

@@ -1,42 +1,77 @@
 <template>
     <main>
-        <section class="image-enfant">  
-            <img src="../assets/img/depositphotos_70020661-stock-photo-beautiful-blonde-girl.jpg">
-            <h1>Prénom enfant</h1>
-        </section>  
-        <section class="enfant">
-            <h2>Information Enfant</h2>
-            <form method="POST">
-                <label>NOM<input class="nom" name="nom" type="text" placeholder="Nom" value=""></label>
-                <label>PRENOM<input class="prenom" name="prenom" type="text" placeholder="Prénom" value=""></label>
-                <label>DATE DE NAISSANCE<input class="date" name="date" type="date" min="1950-01-01" max="2022-07-18"></label>
-                <label>REGIME CANTINE<input class="regime" name="regime" type="number" value=""></label>
-                <label>ALLERGIES<input class="allergie" name="allergie" type="text" placeholder="Gluten, Lactose..." value=""></label>
-                <label>INSCRIT(E) LE<input class="inscrit" name="inscrit" type="date" value=""></label>
-                <button type="submit"><a href="../views/InscrireenfantView.vue#/child">Inscrire un autre enfant</a></button>
-                <button type="submit">Désinscrire cet enfant</button>
-            </form>
-        </section>
-        <section class="image-parent">  
+        <section class="image-parent"> 
+            <div v-for="(perso, index) in allUsers" :key="index">  
             <img src="../assets/img/2e43dd8c6eadd971b818debcbef67a69.jpg">
-            <h1>Prénom parent</h1>
+            <h1>{{ perso.username }}</h1>
+            </div>
         </section>   
         <section class="parent">
             <h2>Information Parent</h2>
             <form method="POST">
-                <label>NOM<input class="nom" name="nom" type="text" placeholder="Nom" disabled="disabled" value=""></label>
-                <label>PRENOM<input class="prenom" name="prenom" type="text" placeholder="Prénom" disabled="disabled" value=""></label>
-                <label>NUMERO DE TELEPHONE<input class="tel" name="tel" type="tel" placeholder="0102030405" value=""></label>
-                <label>E-MAIL<input class="mail" name="mail" type="email" placeholder="@id-formation.fr" value=""></label>
-                <label>ADRESSE<input class="rue" name="rue" type="text" value="Rue">
-                <input class="ville" name="ville" type="text" value="Ville">
-                <input class="code" name="code" type="text" value="Code postal"></label>
-                <button type="submit">Modifier</button>
+                <div v-for="(perso, index) in allUsers" :key="index"> 
+                    <label>NOM<input class="nom" name="nom" type="text" placeholder="Nom" disabled="disabled" v-bind:value="perso.name"></label>
+                    <label>PRENOM<input class="prenom" name="prenom" type="text" placeholder="Prénom" disabled="disabled" v-bind:value="perso.username"></label>
+                    <label>NUMERO DE TELEPHONE<input class="tel" name="tel" type="tel" placeholder="0102030405" v-bind:value="perso.phone"></label>
+                    <label>E-MAIL<input class="mail" name="mail" type="email" placeholder="@id-formation.fr" v-bind:value="perso.email"></label>
+                    <label>ADRESSE
+                        <input class="rue" name="rue" type="text" value="Rue">
+                        <input class="ville" name="ville" type="text" value="Ville">
+                        <input class="code" name="code" type="text" value="Code postal"></label>
+                    <button type="submit">Modifier</button>
+                </div>
+            </form>
+        </section>
+        <section class="image-enfant">  
+            <div v-for="(perso, index) in allUsers" :key="index">  
+            <img src="../assets/img/depositphotos_70020661-stock-photo-beautiful-blonde-girl.jpg">
+            <h1>{{ perso.username }}</h1>
+            </div>
+        </section>  
+        <section class="enfant">
+            <h2>Information Enfant</h2>
+            <form method="POST">     
+                <div v-for="perso in allUsers" :key="index">    
+                    <label>NOM<input class="nom" name="nom" type="text" placeholder="Nom" v-bind:value="perso.name"  disabled="disabled"></label>
+                    <label>PRENOM<input class="prenom" name="prenom" type="text" placeholder="Prénom" v-bind:value="perso.username"  disabled="disabled"></label>
+                    <label>DATE DE NAISSANCE<input class="date" name="date" type="date" min="1950-01-01" max="2022-07-18"  disabled="disabled"></label>
+                    <label>REGIME CANTINE<input class="regime" name="regime" type="number" v-bind:value="perso.id"  disabled="disabled"></label>
+                    <label>ALLERGIES<input class="allergie" name="allergie" type="text" placeholder="Gluten, Lactose..."  disabled="disabled"></label>
+                    <label>INSCRIT(E) LE<input class="inscrit" name="inscrit" type="date"  disabled="disabled"></label>
+                    <button type="submit"><a href="../views/InscrireenfantView.vue#/child">Inscrire un autre enfant</a></button>
+                    <input class="supprimer" @click="deleteUser(index)" type="button" value="Désinscire cet enfant"/>
+                </div>   
             </form>
         </section>         
     </main>
 </template>
 
+<script>
+import axios from "axios"
+
+export default {
+    name: 'App',
+    data: function () {
+        return {
+            allUsers: [],
+        }
+    },
+    beforeMount() {
+            axios
+        .get("https://jsonplaceholder.typicode.com/users")
+        .then((reponse) => {
+            this.allUsers = reponse.data;
+            // console.log(this.allUsers);
+            console.log(this.allUsers[0]);
+        });
+    },
+    methods: {
+        deleteUser(index) {
+            this.allUsers.splice(index, 1);
+        }
+    }
+}
+</script>
 
 <style scoped>
 
@@ -75,13 +110,13 @@ h2 {
     margin: 5px;
     text-align: start;
     width: 20rem;
-    margin-bottom: 3rem;
 }
 
 .parent {
     margin: 5px;
     text-align: start;
     width: 20rem;
+    margin-bottom: 3rem;
 }
 
 label {
@@ -89,6 +124,7 @@ label {
 }
 
 input {
+    padding: 5px;
     width: 20rem;
     background-color: #F0F0F0;
     border: none;
@@ -101,7 +137,7 @@ a {
     text-decoration: none;
 }
 
-button {
+button, .supprimer{
     background-color: #FFBF38;
     border: none;
     color: white;
@@ -117,4 +153,7 @@ button:hover {
     background-color: #FFDC92;
 }
 
+.supprimer:hover {
+    background-color: #FFDC92;
+}
 </style>

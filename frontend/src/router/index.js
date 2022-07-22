@@ -1,5 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import InscrireenfantView from '../views/InscrireenfantView.vue'
+import UtilisateursView from '../views/UtilisateursView.vue'
+import MessagerieView from '../views/MessagerieView.vue'
 
 const routes = [
   {
@@ -18,17 +21,17 @@ const routes = [
   {
     path: '/user',
     name: 'user',
-    component: () => import(/* webpackChunkName: "about" */ '../views/UtilisateursView.vue')
+    component: UtilisateursView
   },
   {
     path: '/child',
     name: 'child',
-    component: () => import(/* webpackChunkName: "about" */ '../views/InscrireenfantView.vue')
+    component: InscrireenfantView
   },
   {
     path: '/msg',
     name: 'msg',
-    component: () => import(/* webpackChunkName: "about" */ '../views/MessagerieView.vue')
+    component: MessagerieView
   }
 ]
 
