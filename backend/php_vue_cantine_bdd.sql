@@ -48,7 +48,7 @@ CREATE TABLE `user` (
   `user_city` varchar (25) NULL,
   `user_zipcode` varchar (5) NULL,
   `user_tel` varchar (15) NULL,
-  `user_inscription_date` date NOT NULL
+  `user_inscription_date` date 
 )
   ENGINE = InnoDB;
 
