@@ -6,20 +6,21 @@
 
     $item = new Client ($db);
 
-    $simulatedRequest= new stdClass();
-    $simulatedRequest->username = "zed";
-    $simulatedRequest->firstname = "zm";
-    $simulatedRequest->surname = "ze";
-    $simulatedRequest->email = "blabla@bla.com";
-    $simulatedRequest->tel = "0787469529";
-    $simulatedRequest->password = "456";
-    $simulatedRequest->street = "rue des petitscoeurs";
-    $simulatedRequest->city = "thionville";
-    $simulatedRequest->zipcode = "54300";
+    // $simulatedRequest= new stdClass();
+    // $simulatedRequest->username = "sayonara";
+    // $simulatedRequest->firstname = "bye";
+    // $simulatedRequest->surname = "auviedersen";
+    // $simulatedRequest->email = "good@by.com";
+    // $simulatedRequest->tel = "0787469529";
+    // $simulatedRequest->password = "456";
+    // $simulatedRequest->street = "rue des charettes";
+    // $simulatedRequest->city = "paris";
+    // $simulatedRequest->zipcode = "92300";
+
 
     
-    // $data = json_decode(file_get_contents("php://input"));
-    $data = $simulatedRequest;
+    $data = json_decode(file_get_contents("php://input"));
+    // $data = $simulatedRequest;
 
     $item->username = $data->username;
     $item->firstname = $data->firstname;

@@ -4,9 +4,9 @@
     class Admin extends User {
 
         public $connect;
-        public $deleted= 0;
+        public $deleted= 1;
 
-        const PROFILETYPE = 1;
+        private $profileType = 1;
         public $username;
         public $firstname;
         public $surname;
@@ -22,7 +22,8 @@
                     user_firstname = :firstname,
                     user_surname = :surname,
                     user_email = :email, 
-                    user_password = :password";
+                    user_profile_type = :profileType,
+                    user_password = :password;";
 
                 $stmt = $this->connect->prepare($sqlQuery);
                 $this->username=htmlspecialchars(strip_tags($this->username));
@@ -38,6 +39,7 @@
                 $stmt->bindParam(":email", $this->email);
                 $stmt->bindParam(":password", $this->password);
                 $stmt->bindParam(":deleted", $this->deleted);
+                $stmt->profileType(":profileType", $this->profilType);
             
                 if($stmt->execute()){
                     return true;
