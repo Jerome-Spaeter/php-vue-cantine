@@ -4,10 +4,21 @@
       <h1>Inscrire un gestionnaire de service</h1>
       <form>
         <label>
-          <span></span>
-          <input>
+          <input type="text" placeholder="Nom">
         </label>
-        <button></button>
+        <label>
+          <input type="text" placeholder="Prénom">
+        </label>
+        <label>
+          <input type="text" placeholder="Email">
+        </label>
+        <label>
+          <input type="password" placeholder="Mot de passe">
+        </label>
+        <label>
+          <input type="password" placeholder="Comfirmation du mot de passe">
+        </label>
+        <button type="submit" value="Valider"></button>
       </form>
     </section>
     <section class="liste-gestionnaire">
