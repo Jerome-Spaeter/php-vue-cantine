@@ -1,7 +1,8 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/user">Utilisateurs</router-link> |
+    <router-link to="/child">Inscrire Enfant</router-link> |
+    <router-link to="/msg">Messagerie</router-link>
   </nav>
   <router-view/>
 </template>
