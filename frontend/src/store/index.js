@@ -15,6 +15,7 @@ export default createStore({
       state.usersrequest.splice(state.usersrequest.findIndex(usersrequest => usersrequest.id == id), 1);
     },
     removeUser(state, id){
+      console.log(id);
       state.userlist.splice(state.userlist.findIndex(userlist => userlist.id == id), 1);
     },
     validateUser(state, id){

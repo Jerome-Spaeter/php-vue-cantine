@@ -1,31 +1,31 @@
 <template>
-<Transition name="modal">
-    <div v-if="show" class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-          <div class="modal-header">
-              <h3>Etes-vous sûr de vouloir supprimer l'utilisateur "{{ userName.toUpperCase() }}" ?</h3>
-          </div>
-          <div class="modal-footer">
-            <slot name="footer">
-              <button
-                class="modal-default-button"
-                @click="$emit('confirm', userId )"
-              >CONFIRMER</button>
-              <button
-                class="modal-default-button"
-                @click="$emit('cancel')"
-              >ANNULER</button>
-            </slot>
-          </div>
+<Transition name="ModalSupprimer">
+  <div v-if="show" class="modal-mask">
+    <div class="modal-wrapper">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Etes-vous sûr de vouloir supprimer l'utilisateur"{{ userName.toUpperCase() }}" ?</h3>
+        </div>
+        <div class="modal-footer">
+          <slot name="footer">
+            <button
+              class="modal-default-button"
+              @click="$emit('confirm', userId )"
+            >CONFIRMER</button>
+            <button
+              class="modal-default-button"
+              @click="$emit('cancel')"
+            >ANNULER</button>
+          </slot>
         </div>
       </div>
     </div>
+  </div>
   </Transition>
 </template>
 <script>
 export default {
-    name: 'modal',
+    name: 'ModalSupprimer',
     props: {
     show: Boolean,
     userId: Number,

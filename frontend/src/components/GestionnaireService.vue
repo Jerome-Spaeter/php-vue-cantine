@@ -8,10 +8,10 @@
       <span class="info-parents">{{ userlist.username }}</span>
       <span class="info-parents">{{ userlist.email }}</span>
       <span class="info-parents">{{ userlist.phone }}</span>
-      <input type="button" @click="afficherModal(userlist.id , userlist.username)" class="btn-supr" value="Supprimer">
+      <input type="button" @click="afficherModal(userlist.id , userlist.username, supActive)" class="btn-supr" value="Supprimer">
     </div>
     <Teleport to="body">
-      <modalSupprimer :show="showModal" :userId="activeUserId" :userName="activeUserName" @cancel="showModal = false" @confirm="removeUser"></modalSupprimer>
+      <modalSupprimer :show="showModalSup" :userId="activeUserId" :userName="activeUserName" @cancel="showModalSup = false" @confirm="removeUser"></modalSupprimer>
     </Teleport>
   </section>
   <h2>Demandes d'inscription</h2>
@@ -24,7 +24,7 @@
       <span class="info-parents">{{ usersRequest.phone }}</span>
       <div class="btn-box">
         <input type="button" @click="ajouterUser(usersRequest.id)" value="Valider" class="btn-valider">
-        <input type="button" @click="afficherModal(usersRequest.id , usersRequest.username)" class="btn-refuser" value="Refuser">
+        <input type="button" @click="afficherModal(usersRequest.id , usersRequest.username, null)" class="btn-refuser" value="Refuser">
       </div>
     </div>
     <Teleport to="body">
@@ -50,20 +50,26 @@ export default {
       allUserslist:[],
       usersRequest:[],
       allUsersRequest:[],
+      showModalSup: false,
       showModal: false,
       activeUserId: 0,
       activeUserName: "",
+      supActive: "sup"
     }
   },
   methods:{
-    afficherModal(idUser, usernameUser) {
+    afficherModal(idUser, usernameUser, modal) {
       this.activeUserId = idUser;
       this.activeUserName = usernameUser;
-      this.showModal = true;
+      if (modal === "sup") {
+        this.showModalSup = true;
+      } else {
+        this.showModal = true;
+      }
     },
     removeUser(userId){
       this.$store.commit("removeUser", userId);
-      this.showModal = false;
+      this.showModalSup = false;
     },
     removeRequest(userId){
       this.$store.commit("refuseRequest", userId);
@@ -138,17 +144,23 @@ h1, h2{
   color: white;
   padding: 0.2rem;
   border-radius: 30px;
-  width: 80%;
+  width: 60%;
   margin: auto;
+  margin-top: 0.5rem;
   font-weight: 700;
-  border: none
+  border: none;
+}
+
+.btn-box{
+  display: flex;
+  padding: 0.5rem;
 }
 .btn-valider{
   background-color:#2DFF35;
   color: white;
   padding: 0.2rem;
   border-radius: 30px;
-  width: 45%;
+  width: 40%;
   margin: auto;
   font-size: 1rem;
   font-weight: 700;
@@ -163,7 +175,7 @@ h1, h2{
   color: white;
   padding: 0.2rem;
   border-radius: 30px;
-  width: 45%;
+  width: 40%;
   margin: auto;
   font-size: 1rem;
   font-weight: 700;

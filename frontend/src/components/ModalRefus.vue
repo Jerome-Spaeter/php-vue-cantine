@@ -1,5 +1,5 @@
 <template>
-<Transition name="modal">
+<Transition name="ModalRefus">
   <div v-if="show" class="modal-mask">
     <div class="modal-wrapper">
       <div class="modal-container">
@@ -25,7 +25,7 @@
 </template>
 <script>
 export default {
-    name: 'modal',
+    name: 'ModalRefus',
     props: {
     show: Boolean,
     userId: Number,
