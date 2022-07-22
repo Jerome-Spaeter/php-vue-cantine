@@ -71,18 +71,23 @@
             }
 
         // returns object
-        public function getCurrentUserInformation() {
-            return $currentUserInformation = [
-                'username' => $this -> username,
-                'firstname' => $this -> firstname,
-                'surname' => $this -> surname,
-                'email' => $this -> email,
-                'tel' => $this -> tel,
-                'password' => $this -> password,
-                'street' => $this -> street,
-                'city' => $this -> city,
-                'zipcode' => $this -> zipcode
-            ];
+        public function getClient() {
+            $sqlQuery= "SELECT * FROM " 
+            . User::DBTABLE .
+            " WHERE 
+            user_id = :userId;"; 
+
+            $res = $this->connect->prepare($sqlQuery);
+            $this->userId=htmlspecialchars(strip_tags($this->userId));
+
+            $res->bindParam(":userId", $this->userId);
+            $res -> setFetchMode(PDO::FETCH_ASSOC);
+            // On exécute la requête :
+            $res -> execute();
+            /* On récupère le résultat de la requête (1 seul résultat possible puisque le champ user_login est déclaré 'unique' dans la table users) et on le sotcke dans un tableau :
+            */
+            $tab = $res -> fetchAll();
+            return $tab;
         }    
     }   
 ?>
